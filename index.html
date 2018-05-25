@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Regular Expressions in Python</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-opensans theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="b041f8d034b31355ecb4d17decd0faed"><div class="sl-block" data-block-type="text" style="width: 726px; left: 80px; top: 153px; height: auto;" data-block-id="1f06a263c2280f403ca2c5ed13fcd516"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1 style="text-align: left;">About me</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 609px; left: 80px; top: 359px; height: auto;" data-block-id="9cfd29726bfc33f12b76f035f2ccb5c0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; line-height: 1.95;" data-has-line-height="">
+<ul>
+	<li style="text-align:left">Software developer</li>
+	<li style="text-align:left">Programming teacher (C, C++, Python)</li>
+	<li style="text-align:left">Django Girls and PyLadies mentor</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 794px; left: 80px; top: 236px; height: auto;" data-block-id="3e23e224415dbc852dfa0e70c22841d5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 13;">
+<h2 style="text-align:left"><span style="font-size:0.7em">Krzysztof Jura &lt;<a href="kisioj@gmail.com" target="_top">kisioj@gmail.com</a>&gt;</span></h2>
+</div></div>
+
+</section><section class="stack" data-id="0b09c6c84c67c82708282f645700bf42"><section data-id="bc933ff8ccd49ef6e436201eee2279be"><div class="sl-block" data-block-type="text" style="width: 800px; left: 240px; top: 216px; height: auto;" data-block-id="06f73c69bf7a5a19c589f4388f064534"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">
+<h1>Regular expressions in Python</h1>
+</div></div></section><section data-id="eefdb0aa20ad568b34ee22754a86a4ad"><div class="sl-block" data-block-type="text" style="width: 1281px; left: 0px; top: 144px; height: auto;" data-block-id="62c4229530f4311c11008c8b55d20d7d">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Regular expressions concept</h2>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 288px; height: auto;" data-block-id="69d72e0e88c652adce304dd8cac1d750">
+    <div class="sl-block-style" style="z-index: 12;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px; line-height: 2.6;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">not strictly related to Python or any other programming language</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">came into common use with Unix text-processing tools</span></li>
+</ul>
+</div>
+    </div>
+</div></section><section data-id="a2f302986748429480132ed705c802bf"><div class="sl-block" data-block-type="text" style="width: 1281px; left: 0px; top: 126px; height: auto;" data-block-id="8d44006f8073ec3c483b658142811c4d">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h3>What are regular expressions (REs, regexes, regexps)?</h3>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 1160px; left: 80px; top: 198px; height: auto;" data-block-id="cdba0482aa78d7039040d60381b8f393">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; line-height: 1.95;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0">sequences of characters that define search patterns
+	<ul>
+		<li class="fragment" data-fragment-index="1">some characters have special meaning (e.g.: "." means any character)</li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="2">usually used for:
+	<ul>
+		<li class="fragment" data-fragment-index="3">searching in text</li>
+		<li class="fragment" data-fragment-index="4">transforming text</li>
+		<li class="fragment" data-fragment-index="5">validating text data</li>
+	</ul>
+	</li>
+</ul>
+</div>
+    </div>
+</div></section><section data-id="70700632c75b48925b0e848b5a8e2c35"><div class="sl-block" data-block-type="text" style="width: 1281px; left: 0px; top: 191px; height: auto;" data-block-id="47cb2b327f067a2c82412ac73319c48b">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Where are regular expressions used?</h2>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 560px; left: 80px; top: 295px; height: auto;" data-block-id="b9c7a79d00d1299030a8128b9b12681c">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; line-height: 2.6;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0">text editors</li>
+	<li class="fragment" data-fragment-index="1">other tools (grep, sed, etc.)</li>
+	<li class="fragment" data-fragment-index="2">programming</li>
+</ul>
+</div>
+    </div>
+</div></section><section data-id="44f50219f7e543bec78494fea7cea20d"><div class="sl-block" data-block-type="text" style="width: 1281px; left: 0px; top: 179px; height: auto;" data-block-id="6cae398139b49f503d54af88a03d83eb">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Regular expressions in Python</h2>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 1120px; left: 81px; top: 288px; height: auto;" data-block-id="197426b2394c48a682e6907b16398c07">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; line-height: 1.95;" dir="ui" data-has-line-height="">
+<p><em><span style="font-size:35.84px; text-align:left">Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language embedded inside Python and made available through the <strong>re </strong></span><span style="font-size:35.84px; text-align:left">module.</span></em></p>
+</div>
+    </div>
+</div></section></section><section class="stack" data-id="fca8937622d38853fd8631c45be7a146"><section data-id="aec66b483de19c3ac6b2d1d98a463400"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 107px; height: auto;" data-block-id="540c7ab86c8e76d0240dbf1cdace88cc">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui"><h2>re module's functions</h2></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 216px; height: auto;" data-block-id="7c11cbc57877b2cfda87213b5dded442">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>search(pattern, string, flags=0)</strong><br>
+    Search a string for the presence of a pattern.</span></p>
+</div>
+    </div>
+</div>
+
+
+</section><section data-id="50a36cf12a5762d3f5658845b652ee46"><style>
+.reveal html {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.reveal ::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+
+.reveal ::-webkit-scrollbar-thumb {
+	background: rgb(255, 0, 0);
+}
+</style>
+<div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="d8840df068fbf45007538d618beed75a">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h2>Example</h2>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="beadaeb938b12565102b9a07a02082e6">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Czy Ala lubi słodycze? Nie, Ala nie lubi słodyczy."</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 182px;" data-block-id="6396432b84eb636e11f4296f2c21979d">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; "Ala" in text</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="5ac4ddb409e6db3d679e5eca66dd67c5">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>True</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="5b48e39e90cac91b55c3d3f98a8820ee">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; "Kasia" in text</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 296px;" data-block-id="d75bf6da529a79b577300391bbdead46">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>False</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="63dcbc3be97f7e893c244c9a14f45c2d">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; import re</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 372px;" data-block-id="44ec93e9bd821c8cbdaa70a78f2c16a6">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Ala", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 410px;" data-block-id="2e03cf1640015919ae127b21fb5d1c3a">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(4, 7), match='Ala'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 448px;" data-block-id="38304fd6a2525a12d4168f24d4a5fc19">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Kasia", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 80px; height: 39px; left: 160px; top: 486px;" data-block-id="5dedd73d5e6aea5f6d37cb5b2e9bc81b">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 524px;" data-block-id="8f48662b8c41d39eba9e065daf808d49">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 25; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>☺ \1</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 906px; height: 39px; left: 214px; top: 486px;" data-block-id="ef0ddb00cae73ee11924d8d76e04f060">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 26; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>print("\1", r"\1")</code></pre>
+    </div>
+</div></section><section data-id="e7db053312fa7128dc76d9434cfbb762"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="28eb8618f6c891c60fc7a1d484af5338">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Example</h2>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="0252b6848862b6e0b41a28254b886cd8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Nie wiesz może gdzie znajdę Alę?"</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 182px;" data-block-id="b8ff84d57b1d84aa7ec54718d88f0c94">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; "Ala" in text</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="6a48e194c420be88d1dc1f6ba910e377">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>False</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="0c94e4ce433410c476c277b749323498">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Ala|Alę", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 372px;" data-block-id="5c0697c8894de9fd90aab168b64208de">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(28, 31), match='Alę'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="ec016e32c5c3a59ebf6c9572dfe60312">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; "Ala" in text or "Alę" in text</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 296px;" data-block-id="632143e63b9364df4f996401e28cb237">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>True</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 486px;" data-block-id="0ee6137e859e0b74f86d1b37b1f28a27">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Ctrl + Alt + Delete mi nie działa :("</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 524px;" data-block-id="889184ea68fefb69fbe1be241ad3685f">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Al.", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 562px;" data-block-id="d68807a6d08cf0dff9d69a3b343937b7">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(7, 10), match='Alt'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 600px;" data-block-id="25fa693c30af36701c205abca05f2c73">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 23; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="12">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Al[aięąu]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 80px; height: 39px; left: 160px; top: 638px;" data-block-id="a3e3750210f63096c1f40cf32c348ab3">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 24; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="13">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 907px; height: 39px; left: 213px; top: 638px;" data-block-id="e2e0de8efe535dcaf37f4a7c5322cc28">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 25; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="14">
+        <pre class="python"><code>re.search(r"Al[^aięąu]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 676px;" data-block-id="f4ba100cf641ae36897060a3d2b08ba1">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 26; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="15">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(7, 10), match='Alt'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 410px;" data-block-id="2aec943151c40116a6bc6e9ed2b82560">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"Al.", text)  # Ala, Ali, Alę, Alą, Alu</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 448px;" data-block-id="345f834f04dccb26f38e968dd9fc8572">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 27; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(28, 31), match='Alę'&gt;</code></pre>
+    </div>
+</div></section><section data-id="34dbedfc14d1dd8e541021a812e9483a"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="b3db780f4f7609d0002e6360ab2c420e">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Example</h2>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="2fa339ceca399129479ba1a098b061bf">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Lubię placki jabłkowe."</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 182px;" data-block-id="ebf6c7105b03441f74a1f525e68bc36b">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; "placki." in text</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="00726758ac21546e7f3a98d7656c4d48">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>False</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="3bdd33761f448683f35234ada6f2cced">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"placki.", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 296px;" data-block-id="2efee2deae545ed109cd05e941bdd721">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(6, 13), match='placki '&gt;</code></pre>
+    </div>
+</div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 448px;" data-block-id="99f5ddce951651476f996c7c32ca8201">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(6, 13), match='placki.'&gt;</code></pre>
+    </div>
+</div>
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="e14aae21bf4916ee0ed99eddf6d614c2">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"placki\.", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 80px; height: 39px; left: 160px; top: 372px;" data-block-id="2405c51957a50889bb0dfe0a9ace9047">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 906px; height: 39px; left: 214px; top: 372px;" data-block-id="d721fa7548ab0a8a727f0f78f4d1d495">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>text = "Lubię placki."</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 410px;" data-block-id="2995d8f69d9e4cb01ac6a560eed0c2b1">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"placki\.", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 486px;" data-block-id="103e65efc10b3422e73979c315c324df">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"placki[.]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 524px;" data-block-id="29d89672f9c742c51626e9e330424fce">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(6, 13), match='placki.'&gt;</code></pre>
+    </div>
+</div>
+
+
+
+</section><section data-id="f7e0be4b5cc2e964b5c9efc41acc82c7"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="4e2c0875d6b2484f06e9feb55cf16de5">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Example</h2>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="a9af04c529ec1e4aaf2906e05d2cb9fe">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Ruszył koniem na C5."</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 182px;" data-block-id="c985cb25481a7623fa455d7dd38e3fba">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"[ABCDEFGH][12345678]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="bc85c59338a3ab850d1c910087000f83">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(17, 19), match='C5'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="a2310c785e0ae3451f0b463f5c0c60f6">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"[A-H][1-8]", text)</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 296px;" data-block-id="4dca577ed2d6205f02c1ad8d407ed4ad">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(17, 19), match='C5'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="599585106725e2f9670f8799e03ac9b6">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Ruszył gońcem na z9."</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 372px;" data-block-id="3328587494222953003a3194168c4c33">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"[A-H][1-8]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 80px; height: 39px; left: 161px; top: 410px;" data-block-id="7d197fecdf675f1a37157679fa0becf2">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 161px; top: 448px;" data-block-id="cebcdee0ee249a48abf7d7b9bd0ad36e">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(17, 19), match='z9'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 907px; height: 39px; left: 215px; top: 410px;" data-block-id="03e15a35146bb151b48fe497b60d6591">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>re.search(r"[a-zA-Z][0-9]", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 961px; height: 39px; left: 159px; top: 486px;" data-block-id="ed878ed67e588f3b9b501c2e006a8f49">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>&gt;&gt;&gt; re.search(r"[a-zA-Z]\d", text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 524px;" data-block-id="c8343ca6d5568448658f6c0ae9b3e934">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 23; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(17, 19), match='z9'&gt;</code></pre>
+    </div>
+</div></section><section data-id="ad803f483ff5dd030694e5c00702c144"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 72px; height: auto;" data-block-id="62d63453bd6d3c4a2fb1d516ce08b3b3">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>REs special characters reminder</h2>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="table" style="height: auto; width: 1120px; left: 80px; top: 216px;" data-block-id="8d1b6ede62615806cf58155a13759fd1"><div class="sl-block-content" style="z-index: 11; text-align: left;" data-table-has-header="true" data-table-cols="2" data-table-rows="7" data-table-padding="5px" data-table-border-width="2px" data-table-border-color="rgb(170, 170, 170)"><table><tbody>
+<tr>
+<th style="width: 111px; border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;">matches</th>
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">A|B, RE that will match either A or B</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">​any character except a newline</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">​any character from specified set</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">​any character that is not in specified set</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);"></td>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);">​escapes special characters or signals a special sequence</td>
+</tr>
+<tr>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);"></td>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);">​any decimal digit</td>
+</tr>
+</tbody></table></div></div>
+<div class="sl-block" data-block-type="table" style="height: auto; width: 112px; left: 80px; top: 216px;" data-block-id="58c6ad78eff0804deec5f095252e288d"><div class="sl-block-content" style="z-index: 13; text-align: center;" data-table-has-header="true" data-table-cols="1" data-table-rows="7" data-table-border-color="rgb(170, 170, 170)" data-table-border-width="2px"><table><tbody>
+<tr>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">|</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">.</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">[ ]</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">[^ ]</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">\</td></tr>
+
+
+
+<tr><td style="border-width: 2px; border-color: rgb(170, 170, 170);">​\d</td></tr>
+</tbody></table></div></div></section></section><section class="stack" data-id="e0d9ac76b4c7b24a9a51d346014fc836"><section data-id="dcf93821e907144b61ede28f076e5637"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 107px; height: auto;" data-block-id="dc333e4a969da6813af3bc502e48be19">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui"><h2>re module's functions</h2></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 216px; height: auto;" data-block-id="c2087e72766fcd02cb13f38baa6f98b0">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>search(pattern, string, flags=0)</strong><br>
+    Search a string for the presence of a pattern.</span></p>
+</div>
+    </div>
+</div>
+
+
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 339px; height: auto;" data-block-id="b663661a5ed5ff7a9e0e63b766aaf4d9">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment fade-right" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; border-width: 1px;" dir="ui" data-fragment-index="0">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>fullmatch(pattern, string, flags=0)</strong><br>
+    Match a regular expression pattern to all of a string.</span></p>
+</div>
+    </div>
+</div></section><section data-id="34ea03e8d14c9f128b5799f253aed5b3"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="760d169458088e3ef000698e865524a8">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Number validation</h2>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="7d541e24ff1cbc72af8a584b8ab707e8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; re.fullmatch(r"\d+", "dużo")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 80px; height: 39px; left: 160px; top: 182px;" data-block-id="4602cb36f463a531e626f76b03747b2c">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="f764f2b1ce53bc7e4f3f6f53a871b435">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(0, 2), match='50'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="45d71763b0dc02e5ccf7c6d7818ac4c2">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>&gt;&gt;&gt; re.fullmatch(r"\d+", "0.50")</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 372px;" data-block-id="be816b3010fe2bc3f241e2cade7ee184">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>&gt;&gt;&gt; re.fullmatch(r"\d+(\.\d*)?", "10.")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 410px;" data-block-id="7f9a23a19c61a1a64ea6366397c1b784">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(0, 3), match='10.'&gt;</code></pre>
+    </div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 79px; height: 39px; left: 161px; top: 296px;" data-block-id="8d7c028726ab994af8378ed8aef48296">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 907px; height: 39px; left: 214px; top: 296px;" data-block-id="28d92411e9ac6c8848410241bcd1c324">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>re.fullmatch(r"\d+(\.\d*)?", "0.50")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="67931ce1fd2e76b982989f9612cfb481">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(0, 4), match='0.50'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 161px; top: 448px;" data-block-id="56eb5c581cf7ef20ff0244e6523d332b">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>&gt;&gt;&gt; re.fullmatch(r"\d+(\.\d*)?", "10.001")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 486px;" data-block-id="712edbfa7277cc112451cbdabdccfeb1">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(0, 6), match='10.001'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 162px; top: 524px;" data-block-id="a58247173efdd679f17a59145eb3edfa">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="12">
+        <pre class="python"><code>&gt;&gt;&gt; re.fullmatch(r"\d+(\.\d{0,2})?", "10.001")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 79px; height: 39px; left: 161px; top: 562px;" data-block-id="10895e1301371fa61ae10999944dd998">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 23; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="13">
+        <pre class="python"><code>&gt;&gt;&gt; </code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 908px; height: 39px; left: 215px; top: 182px;" data-block-id="592e7d9947fa474ea9596910f1e9d0eb">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 25; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>re.fullmatch(r"\d+", "50")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 600px;" data-block-id="b177b629dac8fd06347eed6b27935676">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 26; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="15">
+        <pre class="python"><code>&lt;_sre.SRE_Match object; span=(0, 6), match='250.49'&gt;</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 906px; height: 39px; left: 215px; top: 562px;" data-block-id="a9154bba8c60ca6e40ac0976678dc9bd">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 27; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="14">
+        <pre class="python"><code>re.fullmatch(r"\d+(\.\d{0,2})?", "250.49")</code></pre>
+    </div>
+</div></section><section data-id="fae1eb120cda674e5c9af6835ce0e8fd"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 72px; height: auto;" data-block-id="e82cac0b1f9919d7af0687d50a6f6369">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>REs special characters reminder</h2>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="table" style="height: auto; width: 1120px; left: 80px; top: 216px;" data-block-id="64594805fab0bcf841e09de1cdd38db6"><div class="sl-block-content" style="z-index: 11; text-align: left;" data-table-has-header="true" data-table-cols="2" data-table-rows="7" data-table-padding="5px" data-table-border-width="2px" data-table-border-color="rgb(170, 170, 170)"><table><tbody>
+<tr>
+<th style="width: 111px; border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;">matches</th>
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">0 or more (greedy) repetitions of the preceding RE</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">1 or more (greedy) repetitions of the preceding RE</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"> 0 or 1 (greedy) of the preceding RE</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">n repetitions of the preceding RE</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);"></td>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);">from m to n (greedy) repetitions of the preceding RE</td>
+</tr>
+<tr>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);"></td>
+<td style="border-width: 2px; border-color: rgb(170, 170, 170);">RE inside the parentheses</td>
+</tr>
+</tbody></table></div></div>
+<div class="sl-block" data-block-type="table" style="height: auto; width: 112px; left: 80px; top: 216px;" data-block-id="a34c8a1132320432c18aaa586c6d6f03"><div class="sl-block-content" style="z-index: 12; text-align: center;" data-table-has-header="true" data-table-cols="1" data-table-rows="7" data-table-border-color="rgb(170, 170, 170)" data-table-border-width="2px"><table><tbody>
+<tr>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">*</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">+</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">?</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">{n}</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">{m,n}</td></tr>
+
+
+
+<tr><td style="border-width: 2px; border-color: rgb(170, 170, 170);">(...)</td></tr>
+</tbody></table></div></div></section></section><section class="stack" data-id="65722d99929c38f480477d7c3e57a076"><section data-id="b4266c72a43dce86a8b7490cc67d3bf9"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 107px; height: auto;" data-block-id="6be1460c00453631b1966cbb7d5619fa">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui"><h2>re module's functions</h2></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 216px; height: auto;" data-block-id="d2a83ca39203e36fe64ce4eb7b0c527e">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>search(pattern, string, flags=0)</strong><br>
+    Search a string for the presence of a pattern.</span></p>
+</div>
+    </div>
+</div>
+
+
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 339px; height: auto;" data-block-id="499aa3c88489914c1a97b5e7151bfd9d">
+    <div class="sl-block-style" style="z-index: 12;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>fullmatch(pattern, string, flags=0)</strong><br>
+    Match a regular expression pattern to all of a string.</span></p>
+</div>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 458px; height: auto;" data-block-id="6fd0f0d3995e898749f74df2a3d5589b">
+    <div class="sl-block-style" style="z-index: 14;">
+        <div class="sl-block-content fragment fade-right" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; border-width: 1px;" dir="ui" data-fragment-index="0">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>findall(pattern, string, flags=0)</strong><br>
+    Find all occurrences of a pattern in a string.</span></p>
+</div>
+    </div>
+</div></section><section data-id="53c7d99188445223d63d0cd4cea7fad5"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="5951ae80bfc2856c853349eb8c9ee9ab">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 12;">
+        <h2>Example</h2>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 155px; left: 160px; top: 144px;" data-block-id="aec8c2caf2df82360152420b95c9a42f">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 10; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; html = '''&lt;html&gt;&lt;body&gt;
+...     &lt;h1&gt;Tytuł&lt;/h1&gt;
+...     &lt;h1&gt;Błąd&lt;/p&gt;
+...     &lt;p&gt;Par1&lt;/p&gt;&lt;p&gt;Par2&lt;/p&gt;
+... &lt;/body&gt;&lt;/html&gt;'''</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 298px;" data-block-id="642ba16bc0f840df685ce58e044f3e9d">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;h1&gt;.*&lt;/h1&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 336px;" data-block-id="1b53d8b242272ff205d1711e67dfa15e">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>['&lt;h1&gt;Tytuł&lt;/h1&gt;']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 374px;" data-block-id="564fb3a2d4687e3afd23f9fbe837c299">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;h1&gt;(.*)&lt;/h1&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 38px; left: 160px; top: 488px;" data-block-id="2e9551d6210122bc85ad291e87350447">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>[('Tytuł', '&lt;/h1&gt;')]</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 450px;" data-block-id="6b2a78aeed7c0750be571ab6711e913c">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;h1&gt;(.*)(&lt;/h1&gt;)', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 412px;" data-block-id="9d5b6b4c4bfb2db9de80981774c96719">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>['Tytuł']</code></pre>
+    </div>
+</div>
+<!-- line1: <h1>Tytuł</h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 194px; height: 27px; left: 273px; top: 180px;" data-block-id="cd50795ce1992175c1577c33a38ad131">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#4c1130" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 194 27"><defs><clippath id="shape-mask-1-1527270002931"><rect width="194" height="27"></rect></clippath></defs><rect width="194" height="27" clip-path="url(#shape-mask-1-1527270002931)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#4c1130" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: <h1>Tytuł</h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 194px; height: 27px; left: 273px; top: 180px;" data-block-id="cd50795ce1992175c1577c33a38ad131">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#4c1130" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 194 27"><defs><clippath id="shape-mask-2-1527270002934"><rect width="194" height="27"></rect></clippath></defs><rect width="194" height="27" clip-path="url(#shape-mask-2-1527270002934)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#4c1130" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: Tytuł -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 69px; height: 23px; left: 328px; top: 182px;" data-block-id="33925067f0dcaf66439a4e4951c49c1a">
+    <div class="sl-block-style" style="z-index: 17; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 69 23"><rect width="69" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: <h1>Tytuł</h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 194px; height: 27px; left: 273px; top: 180px;" data-block-id="cd50795ce1992175c1577c33a38ad131">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#4c1130" data-shape-stroke-width="1" data-fragment-index="6">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 194 27"><defs><clippath id="shape-mask-3-1527270002940"><rect width="194" height="27"></rect></clippath></defs><rect width="194" height="27" clip-path="url(#shape-mask-3-1527270002940)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#4c1130" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: Tytuł -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 69px; height: 23px; left: 328px; top: 182px;" data-block-id="33925067f0dcaf66439a4e4951c49c1a">
+    <div class="sl-block-style" style="z-index: 17; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="6">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 69 23"><rect width="69" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+
+<!-- line1: </h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 67px; height: 23px; left: 398px; top: 182px;" data-block-id="78a7fd94de0404a2b092ab5416caabb9">
+    <div class="sl-block-style" style="z-index: 15; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 0, 255)" data-shape-stretch="true" style="z-index: 15;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="6">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 67 23"><defs><clippath id="shape-mask-4-1527270002945"><rect width="67" height="23"></rect></clippath></defs><rect width="67" height="23" clip-path="url(#shape-mask-4-1527270002945)" class="shape-element" fill="rgb(0, 0, 255)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+</section><section data-id="ef3ae79f6df14822066be2ed55298e1c"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="180be546c5a3dd9dc30b3395642e7429">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 15;">
+        <h2>Example</h2>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 155px; left: 160px; top: 144px;" data-block-id="c74ef4b4c93b68d85fb035259806815c">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 10; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; html = '''&lt;html&gt;&lt;body&gt;
+...     &lt;h1&gt;Tytuł&lt;/h1&gt;
+...     &lt;h1&gt;Błąd&lt;/p&gt;
+...     &lt;p&gt;Par1&lt;/p&gt;&lt;p&gt;Par2&lt;/p&gt;
+... &lt;/body&gt;&lt;/html&gt;'''</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 298px;" data-block-id="39c4ea9fd6a2e609be1994fd53c014b8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;p&gt;.*&lt;/p&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 336px;" data-block-id="a57d89764b41bdb645b9b63065b6749a">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>['&lt;p&gt;Par1&lt;/p&gt;&lt;p&gt;Par2&lt;/p&gt;']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 374px;" data-block-id="bad66be65f97eafa21ca7dffa43a0ff8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 18; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;p&gt;[^&lt;]*&lt;/p&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 38px; left: 160px; top: 488px;" data-block-id="6f3c854adb02e771cedf5363efbcbee1">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>['&lt;p&gt;Par1&lt;/p&gt;', '&lt;p&gt;Par2&lt;/p&gt;']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 450px;" data-block-id="6290fa461f03f6182bac106e1d9147cd">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;p&gt;.*?&lt;/p&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 412px;" data-block-id="f961504939134cbd0fbd8ad092ec2698">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>['&lt;p&gt;Par1&lt;/p&gt;', '&lt;p&gt;Par2&lt;/p&gt;']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 38px; left: 160px; top: 563px;" data-block-id="7331376b14db801412f8db9b0db27e83">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>['Par1', 'Par2']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 525px;" data-block-id="1c16c717709e8e8b839aeef35262739f">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 23; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;p&gt;(.*?)&lt;/p&gt;', html)</code></pre>
+    </div>
+</div>
+<!-- line3: <p>Par1</p><p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 298px; height: 27px; left: 273px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 298 27"><defs><clippath id="shape-mask-5-1527270004560"><rect width="298" height="27"></rect></clippath></defs><rect width="298" height="27" clip-path="url(#shape-mask-5-1527270004560)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par1</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 273px; top: 238px;" data-block-id="a7a2fdb97909e5ff7ebdcb79295af4f2">
+    <div class="sl-block-style" style="z-index: 23;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-6-1527270004562"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-6-1527270004562)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 423px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-7-1527270004565"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-7-1527270004565)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par1</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 273px; top: 238px;" data-block-id="a7a2fdb97909e5ff7ebdcb79295af4f2">
+    <div class="sl-block-style" style="z-index: 23;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="6">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-8-1527270004567"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-8-1527270004567)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 423px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="6">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-9-1527270004570"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-9-1527270004570)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par1</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 273px; top: 238px;" data-block-id="a7a2fdb97909e5ff7ebdcb79295af4f2">
+    <div class="sl-block-style" style="z-index: 23;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="8">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-10-1527270004573"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-10-1527270004573)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 423px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="8">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-11-1527270004575"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-11-1527270004575)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: Par1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 315px; top: 240px;" data-block-id="f39993d8aafa8eecac4a7bbf000fb6e1">
+    <div class="sl-block-style" style="z-index: 31; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 31;" data-fragment-index="8">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: Par2 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 465px; top: 240px;" data-block-id="f07dd9cac426010405e079bc759e21a1">
+    <div class="sl-block-style" style="z-index: 33; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 33;" data-fragment-index="8">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+</section><section data-id="2ee739871dc788bd871bbb3717a65457"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="cae847fd76c07b7fb3801d00f2d19ec7">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h2>Example</h2>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 155px; left: 160px; top: 144px;" data-block-id="f7333a4e835cfd07cacad8937ce5f2b8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; html = '''&lt;html&gt;&lt;body&gt;
+...     &lt;h1&gt;Tytuł&lt;/h1&gt;
+...     &lt;h1&gt;Błąd&lt;/p&gt;
+...     &lt;p&gt;Par1&lt;/p&gt;&lt;p&gt;Par2&lt;/p&gt;
+... &lt;/body&gt;&lt;/html&gt;'''</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 298px;" data-block-id="aa49298a0878d46580be5ea07efa5b4d">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;(p|h1)&gt;(.*?)&lt;/(p|h1)&gt;', html)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 340px;" data-block-id="52d887937e4935857f33e3596adfba90">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 13; font-size: 120%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>[('h1', 'Tytuł', 'h1'), ('h1', 'Błąd', 'p'), ('p', 'Par1', 'p'), ('p', 'Par2', 'p')]</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 374px;" data-block-id="5190f4bd04dd117ab5ca0ed650daf2d1">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(r'&lt;(p|h1)&gt;(.*?)&lt;/\1&gt;', html)</code></pre>
+    </div>
+</div>
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 412px;" data-block-id="802e9ac88a322716ce5b2fa523427dda">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>[('h1', 'Tytuł'), ('p', 'Par1'), ('p', 'Par2')]</code></pre>
+    </div>
+</div>
+<!-- line1: h1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 29px; height: 23px; left: 286px; top: 182px;" data-block-id="33387e2e89922d6ec3c4c5ed7f0c0a2c">
+    <div class="sl-block-style" style="z-index: 19; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 29 23"><rect width="29" height="23" class="shape-element" fill="rgb(255, 0, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: end h1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 29px; height: 23px; left: 423px; top: 182px;" data-block-id="e76d7e1ccc6ce1b88865cf9047635bad">
+    <div class="sl-block-style" style="z-index: 19; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 0, 255)" data-shape-stretch="true" style="z-index: 19;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 29 23"><rect width="29" height="23" class="shape-element" fill="rgb(0, 0, 255)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line2: h1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 28px; height: 23px; left: 286px; top: 211px;" data-block-id="371787a059324dac714b489f48bd7074">
+    <div class="sl-block-style" style="z-index: 20; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 20;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 28 23"><rect width="28" height="23" class="shape-element" fill="rgb(255, 0, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line2: end h1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 409px; top: 211px;" data-block-id="572023c3aa874a995dee19198d1e961f">
+    <div class="sl-block-style" style="z-index: 20; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 0, 255)" data-shape-stretch="true" style="z-index: 20;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-12-1527270005851"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-12-1527270005851)" class="shape-element" fill="rgb(0, 0, 255)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 286px; top: 240px;" data-block-id="672ef8928fa3ba3d655763987b153c33">
+    <div class="sl-block-style" style="z-index: 26; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 26;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-13-1527270005853"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-13-1527270005853)" class="shape-element" fill="rgb(255, 0, 0)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: Par1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 315px; top: 240px;" data-block-id="f39993d8aafa8eecac4a7bbf000fb6e1">
+    <div class="sl-block-style" style="z-index: 22; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 22;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: end p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 395px; top: 240px;" data-block-id="59c3e1e7b3129b665e0397db9eb2620a">
+    <div class="sl-block-style" style="z-index: 21; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 0, 255)" data-shape-stretch="true" style="z-index: 21;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-14-1527270005859"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-14-1527270005859)" class="shape-element" fill="rgb(0, 0, 255)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 436px; top: 240px;" data-block-id="958a6619bff8aba624141f778cc4d0dd">
+    <div class="sl-block-style" style="z-index: 24; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-15-1527270005861"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-15-1527270005861)" class="shape-element" fill="rgb(255, 0, 0)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: Par2 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 465px; top: 240px;" data-block-id="f07dd9cac426010405e079bc759e21a1">
+    <div class="sl-block-style" style="z-index: 23; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 23;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: end p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 545px; top: 240px;" data-block-id="12d50311407eb9386624c4ab7c047f93">
+    <div class="sl-block-style" style="z-index: 22; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 0, 255)" data-shape-stretch="true" style="z-index: 22;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-16-1527270005866"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-16-1527270005866)" class="shape-element" fill="rgb(0, 0, 255)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line2: Błąd -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 55px; height: 23px; left: 328px; top: 211px;" data-block-id="cae28ba5b4cb00da84300cbfd761f0d4">
+    <div class="sl-block-style" style="z-index: 27; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 27;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 55 23"><rect width="55" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: Tytuł -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 69px; height: 23px; left: 328px; top: 182px;" data-block-id="33925067f0dcaf66439a4e4951c49c1a">
+    <div class="sl-block-style" style="z-index: 17; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 69 23"><rect width="69" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: <h1>Tytuł</h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 194px; height: 27px; left: 273px; top: 180px;" data-block-id="cd50795ce1992175c1577c33a38ad131">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#4c1130" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 194 27"><defs><clippath id="shape-mask-17-1527270005872"><rect width="194" height="27"></rect></clippath></defs><rect width="194" height="27" clip-path="url(#shape-mask-17-1527270005872)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#4c1130" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line2: <h1>Błąd</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 164px; height: 27px; left: 273px; top: 209px;" data-block-id="d45c45ca2bc458b97ad39cbedcf9a0a3">
+    <div class="sl-block-style" style="z-index: 22;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 22;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 164 27"><defs><clippath id="shape-mask-18-1527270005874"><rect width="164" height="27"></rect></clippath></defs><rect width="164" height="27" clip-path="url(#shape-mask-18-1527270005874)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par1</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 273px; top: 238px;" data-block-id="a7a2fdb97909e5ff7ebdcb79295af4f2">
+    <div class="sl-block-style" style="z-index: 23;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-19-1527270005876"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-19-1527270005876)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 423px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="2">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-20-1527270005878"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-20-1527270005878)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- DUPA -->
+<!-- line1: <h1>Tytuł</h1> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 194px; height: 27px; left: 273px; top: 180px;" data-block-id="cd50795ce1992175c1577c33a38ad131">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-stroke-color="#4c1130" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 194 27"><defs><clippath id="shape-mask-21-1527270005881"><rect width="194" height="27"></rect></clippath></defs><rect width="194" height="27" clip-path="url(#shape-mask-21-1527270005881)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#4c1130" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par1</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 273px; top: 238px;" data-block-id="a7a2fdb97909e5ff7ebdcb79295af4f2">
+    <div class="sl-block-style" style="z-index: 23;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-22-1527270005883"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-22-1527270005883)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3: <p>Par2</p> -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 27px; left: 423px; top: 238px;" data-block-id="0e13cc3371a77befcdd188c03fe7144b">
+    <div class="sl-block-style" style="z-index: 24;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#000000" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 27"><defs><clippath id="shape-mask-23-1527270005885"><rect width="148" height="27"></rect></clippath></defs><rect width="148" height="27" clip-path="url(#shape-mask-23-1527270005885)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#000000" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: h1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 29px; height: 23px; left: 286px; top: 182px;" data-block-id="33387e2e89922d6ec3c4c5ed7f0c0a2c">
+    <div class="sl-block-style" style="z-index: 19; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 29 23"><rect width="29" height="23" class="shape-element" fill="rgb(255, 0, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line1: Tytuł -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 69px; height: 23px; left: 328px; top: 182px;" data-block-id="33925067f0dcaf66439a4e4951c49c1a">
+    <div class="sl-block-style" style="z-index: 17; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 69 23"><rect width="69" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 286px; top: 240px;" data-block-id="672ef8928fa3ba3d655763987b153c33">
+    <div class="sl-block-style" style="z-index: 26; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 26;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-24-1527270005891"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-24-1527270005891)" class="shape-element" fill="rgb(255, 0, 0)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 left: Par1 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 315px; top: 240px;" data-block-id="f39993d8aafa8eecac4a7bbf000fb6e1">
+    <div class="sl-block-style" style="z-index: 22; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 22;" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: p -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 15px; height: 23px; left: 436px; top: 240px;" data-block-id="958a6619bff8aba624141f778cc4d0dd">
+    <div class="sl-block-style" style="z-index: 24; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 24;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="1" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 15 23"><defs><clippath id="shape-mask-25-1527270005895"><rect width="15" height="23"></rect></clippath></defs><rect width="15" height="23" clip-path="url(#shape-mask-25-1527270005895)" class="shape-element" fill="rgb(255, 0, 0)" stroke="#0000ff" stroke-width="2"></rect></svg>
+        </div>
+    </div>
+</div>
+<!-- line3 right: Par2 -->
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 54px; height: 23px; left: 465px; top: 240px;" data-block-id="f07dd9cac426010405e079bc759e21a1">
+    <div class="sl-block-style" style="z-index: 23; opacity: 0.5;">
+        <div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 200, 0)" data-shape-stretch="true" style="z-index: 23;" data-fragment-index="4">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 54 23"><rect width="54" height="23" class="shape-element" fill="rgb(0, 200, 0)"></rect></svg>
+        </div>
+    </div>
+</div>
+
+
+</section><section data-id="8b636e5dc8d16bbece6fc539e0bcdc1e"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 144px; height: auto;" data-block-id="c36471a724fc61206e742fe3b8f1814d">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>REs special characters reminder</h2>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="table" style="height: auto; width: 1150px; left: 80px; top: 288px;" data-block-id="0fd55dd800ad7a112fd67af77ef9a705"><div class="sl-block-content" style="z-index: 11; text-align: left;" data-table-has-header="true" data-table-cols="2" data-table-rows="3" data-table-padding="5px" data-table-border-width="2px" data-table-border-color="rgb(170, 170, 170)"><table><tbody>
+<tr>
+<th style="width: 214px; border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;">meaning</th>
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px; width: 214px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">matches 0 or more (non-greedy) repetitions of the preceding RE</td>
+</tr>
+<tr>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px; width: 214px;"></td>
+<td style="border-color: rgb(170, 170, 170); border-width: 2px;">matches the contents of the group of the same number</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table></div></div>
+<div class="sl-block" data-block-type="table" style="height: auto; width: 215px; left: 80px; top: 288px;" data-block-id="1540f987aaaef01e641a8806a94b7b2a"><div class="sl-block-content" style="z-index: 12; text-align: center;" data-table-has-header="true" data-table-cols="1" data-table-rows="3" data-table-border-color="rgb(170, 170, 170)" data-table-border-width="2px"><table><tbody>
+<tr>
+<th style="border-color: rgb(170, 170, 170); border-width: 2px;"></th>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">*?</td></tr>
+<tr><td style="border-color: rgb(170, 170, 170); border-width: 2px;">\number</td></tr>
+
+
+
+
+
+
+
+
+
+</tbody></table></div></div></section></section><section class="stack" data-id="dfab2248e6744049d9d1bb75488ab23e"><section data-id="b3bbacd1c781846834b1c5e105506163"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 107px; height: auto;" data-block-id="72d4dec498ce78a0ba1b2f50f750b4e1">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui"><h2>re module's functions</h2></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 216px; height: auto;" data-block-id="e28f3349d31980c503b44d39e4ff3999">
+    <div class="sl-block-style" style="z-index: 11;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>search(pattern, string, flags=0)</strong><br>
+    Search a string for the presence of a pattern.</span></p>
+</div>
+    </div>
+</div>
+
+
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 339px; height: auto;" data-block-id="9832dc63ee02bc4329b5eeba4336134d">
+    <div class="sl-block-style" style="z-index: 12;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>fullmatch(pattern, string, flags=0)</strong><br>
+    Match a regular expression pattern to all of a string.</span></p>
+</div>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 458px; height: auto;" data-block-id="b918e409736e47f109c7018c644e2869">
+    <div class="sl-block-style" style="z-index: 13;">
+        <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; border-width: 1px;" dir="ui">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>findall(pattern, string, flags=0)</strong><br>
+    Find all occurrences of a pattern in a string.</span></p>
+</div>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 160px; top: 576px; height: auto;" data-block-id="6f8d51951d74f92fb4a2a470d5cf630b">
+    <div class="sl-block-style" style="z-index: 15;">
+        <div class="sl-block-content fragment fade-right" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; border-width: 1px;" dir="ui" data-fragment-index="0">
+<p style="text-align:left"><span style="font-size:1.2em"><strong>compile(pattern, flags=0)</strong><br>
+    Compile a pattern into a RegexObject.</span></p>
+</div>
+    </div>
+</div></section><section data-id="f10f4e257f06d87d9ee8e2c0e5fb3218"><div class="sl-block" data-block-type="text" style="width: 1280px; left: 0px; top: 35px; height: auto;" data-block-id="440031714005b9aa6cbcbcd19a1bcd95">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Example</h2>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 144px;" data-block-id="37ef64a23b55251231aa459b23c430b8">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 11; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="0">
+        <pre class="python"><code>&gt;&gt;&gt; text = "Nie wiesz może gdzie znajdę Alę?"</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 182px;" data-block-id="c20f047744aa053b6deed4a56bb8451d">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 12; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="1">
+        <pre class="python"><code>&gt;&gt;&gt; myregex = re.compile(r"Al[aięąu]")</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 220px;" data-block-id="aee5906cc68e363bdf5fb93b43f3efc5">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 13; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="2">
+        <pre class="python"><code>&gt;&gt;&gt; re.findall(myregex, text)</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 258px;" data-block-id="1912ee59823836595c922e11525fb2aa">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 14; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="3">
+        <pre class="python"><code>['Alę']</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 372px;" data-block-id="c9a630504a7d5d58c719598645b0ca39">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 15; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="6">
+        <pre class="python"><code>&gt;&gt;&gt; from timeit import timeit</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 410px;" data-block-id="1c1ae8bdfc24dd5dba95fb3f46f71a1e">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 16; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="7">
+        <pre class="python"><code>&gt;&gt;&gt; timeit('myregex.findall(text)', globals=globals())</code></pre>
+    </div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 959px; height: 38px; left: 161px; top: 297px;" data-block-id="83cc5f7c5903c1e1276324d061f2cd26">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 17; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="4">
+        <pre class="python"><code>&gt;&gt;&gt; myregex.findall(text)</code></pre>
+    </div>
+</div>
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 334px;" data-block-id="d079d059a9ae19d84137556a166fef3b">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 19; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="5">
+        <pre class="python"><code>['Alę']</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 161px; top: 448px;" data-block-id="d5ccedeef35ec14e4f2e807bc1ff5916">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 20; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="8">
+        <pre class="python"><code>0.5122056359495131</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 486px;" data-block-id="e000a10ec0d5951d97b7c72f3e197521">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 22; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="9">
+        <pre class="python"><code>&gt;&gt;&gt; timeit('re.findall(myregex, text)', globals=globals())</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 162px; top: 524px;" data-block-id="0ce9c5bca3910df19d857955f8886b4a">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 21; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="10">
+        <pre class="python"><code>1.473552673556437</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 959px; height: 39px; left: 161px; top: 562px;" data-block-id="3d74ac343bfdbf4d294067e21ae6069a">
+    <div class="sl-block-content notranslate fragment fade-down" style="z-index: 23; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="11">
+        <pre class="python"><code>&gt;&gt;&gt; timeit('re.findall(r"Al[aięąu]", text)', globals=globals())</code></pre>
+    </div>
+</div>
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 39px; left: 160px; top: 600px;" data-block-id="d2cb85a162ea04d07a50da2d3f509d7c">
+    <div class="sl-block-content notranslate fragment fade-right" style="z-index: 25; font-size: 150%;" data-highlight-theme="ascetic" data-fragment-index="12">
+        <pre class="python"><code>0.9848888915498364</code></pre>
+    </div>
+</div>
+</section></section><section data-id="d2b47f37b2a0cb84948f26e3cf78090c">
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 500px; height: 222px; left: 390px; top: 210px;" data-block-id="21946a0fb8a860c2430d8dbf5539a097">
+    <div class="sl-block-content notranslate" data-highlight-theme="ascetic" style="z-index: 11; font-size: 500%;">
+        <pre class="python"><code>import re
+help(re)</code></pre>
+    </div>
+</div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1249969,"slug":"deck","title":"Regular Expressions in Python","description":"","width":1280,"height":720,"visibility":"self","published_at":"2018-05-09T13:16:33.678Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/9bbdd1285f7d6654df1e005778f2fc4c/thumb.jpg?1527121063","view_count":1,"user":{"id":844606,"username":"krzysztofjura","name":"Krzysztof Jura","description":null,"thumbnail_url":"//graph.facebook.com/v2.6/10211374237539002/picture","paid":true,"pro":true,"lite":false,"team_id":1542,"settings":{"id":900250,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"enterprise":true,"membership":{"role":"owner","manager":true,"activated":true}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"opensans","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":28,"rtl":false,"version":2,"collaborative":true,"deck_user_editor_limit":1,"data_updated_at":1527270012548,"font_typekit":null,"font_google":null,"notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/head.min.js"></script>
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 1280,
+				height: 720,
+				margin: 0.05,
+
+				controls: true,
+				progress: true,
+				history: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0 || 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
